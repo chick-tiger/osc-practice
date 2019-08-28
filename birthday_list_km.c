@@ -9,6 +9,7 @@ struct birthday {
 	int day;
 	int month;
 	int year;
+    char *name;
 	struct list_head list;
 };
 
@@ -18,6 +19,7 @@ int cjLinkedList_init(void){
 	printk(KERN_INFO "Creating Birthday list\n");
 	struct birthday *Kevin;
 	Kevin  = kmalloc(sizeof(*Kevin), GFP_KERNEL);
+    Kevin->name = "Kevin";
 	Kevin->day = 2;
 	Kevin->month = 8;
 	Kevin->year = 1982;
@@ -26,6 +28,7 @@ int cjLinkedList_init(void){
 
 	struct birthday *David;
 	David = kmalloc(sizeof(*David), GFP_KERNEL);
+    David->name = "David";
 	David->day = 1;
 	David->month = 6;
 	David->year = 1981;
@@ -34,6 +37,7 @@ int cjLinkedList_init(void){
 
 	struct birthday *Justin;
 	Justin = kmalloc(sizeof(*Justin), GFP_KERNEL);
+    Justin->name = "Justin";
 	Justin->day = 3;
 	Justin->month = 7;
 	Justin->year = 1983;
@@ -43,6 +47,7 @@ int cjLinkedList_init(void){
 
 	struct birthday *Andy;
 	Andy = kmalloc(sizeof(*Andy), GFP_KERNEL);
+    Andy->name = "Andy";
 	Andy->day = 4;
 	Andy->month = 9;
 	Andy->year = 1984;
@@ -51,6 +56,7 @@ int cjLinkedList_init(void){
 
 	struct birthday *Sean;
 	Sean = kmalloc(sizeof(*Sean), GFP_KERNEL);
+    Sean->name = "Sean";
 	Sean->day = 5;
 	Sean->month = 10;
 	Sean->year = 1985;
@@ -60,7 +66,7 @@ int cjLinkedList_init(void){
 	printk(KERN_INFO "Traversing birthday list\n");
 	struct birthday *ptr;
 	list_for_each_entry(ptr, &birthday_list, list){
-		printk(KERN_INFO "BIRTHDAY: Month: %d Day: %d Year: %d\n", ptr->month, ptr->day, ptr->year);
+		printk(KERN_INFO "%s's BIRTHDAY: Month: %d Day: %d Year: %d\n",ptr->name, ptr->month, ptr->day, ptr->year);
 	}
 	return 0;
 }
