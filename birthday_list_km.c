@@ -32,7 +32,7 @@ int cjLinkedList_init(void){
 	INIT_LIST_HEAD(&David->list);
 	list_add_tail(&David->list, &birthday_list);
 
-    struct birthday *Justin;
+	struct birthday *Justin;
 	Justin = kmalloc(sizeof(*Justin), GFP_KERNEL);
 	Justin->day = 3;
 	Justin->month = 7;
